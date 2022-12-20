@@ -31,7 +31,7 @@ public class Jpa_Config {
      private Environment env;
  
 	@Bean
-	public DataSource dataSource() {
+	public DataSource dataSource2() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		 // See: application.properties
         dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
@@ -61,7 +61,7 @@ public class Jpa_Config {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter());
-		entityManagerFactoryBean.setDataSource(dataSource());
+		entityManagerFactoryBean.setDataSource(dataSource2());
 		//entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 		entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 		entityManagerFactoryBean.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);

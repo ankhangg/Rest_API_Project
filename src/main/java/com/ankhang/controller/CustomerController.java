@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ankhang.model.Customer_Model;
+import com.ankhang.entities.Customer;
+import com.ankhang.model.ResponseModel;
 import com.ankhang.service.CustomerService;
 
 @Transactional
@@ -17,9 +19,18 @@ public class CustomerController {
   private CustomerService customerService;
   
   @PostMapping(value = "/addcus", produces = {MediaType.APPLICATION_JSON_VALUE})
-  public boolean addCustomer(@RequestBody Customer_Model customer_Model) {
-	  boolean ketqua = customerService.saveCustomer_Regist(customer_Model);
+  @ResponseBody
+  public ResponseModel addCustomer(@RequestBody Customer customer) {
+	  boolean ketqua = customerService.saveCustomer_Regist(customer);
 	  System.out.println("Ket qua addCustomer Controller:" + ketqua);
-	  return ketqua;
+	  ResponseModel demoModel = new ResponseModel();
+	  if (ketqua==true) {
+		  demoModel.setMessage("ADD CUSTOMER SUCCESS");
+		  demoModel.setCode("000");
+	}else {
+		  demoModel.setMessage("ADD CUSTOMER FAIL");
+		  demoModel.setCode("001");
+	}
+	  return demoModel;
   }
 }

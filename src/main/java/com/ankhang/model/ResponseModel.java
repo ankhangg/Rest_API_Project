@@ -1,4 +1,5 @@
 package com.ankhang.model;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -6,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer_Model {
-  private String nameCus;
-  private String maDinhDanhCus;
-  private int ageCus;
+public class ResponseModel {
+   private String code;
+   private String message;
 }

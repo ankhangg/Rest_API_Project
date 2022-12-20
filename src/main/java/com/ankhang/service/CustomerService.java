@@ -1,7 +1,8 @@
 package com.ankhang.service;
 
-import com.ankhang.model.Customer_Model;
+import com.ankhang.entities.Customer;
 
 public interface CustomerService {
-	boolean saveCustomer_Regist(Customer_Model customer_Model);
+	boolean saveCustomer_Regist(Customer customer);
+	Customer findCustomer(int madd);
 }
