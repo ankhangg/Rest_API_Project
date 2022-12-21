@@ -32,7 +32,6 @@ public class CustomerController {
   @ResponseBody
   public ResponseModel addCustomer(@RequestBody Customer customer) {
 	  boolean ketqua = customerService.saveCustomer_Regist(customer);
-	  System.out.println("Ket qua addCustomer Controller:" + ketqua);
 	  ResponseModel demoModel = new ResponseModel();
 	  if (ketqua==true) {
 		  demoModel.setMessage(bundle.getString("addcus.message.success"));

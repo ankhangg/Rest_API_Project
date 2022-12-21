@@ -10,4 +10,6 @@ import com.ankhang.entities.Account;
 public interface AccountRepository extends CrudRepository<Account, Long> {
     @Query("Select a from Account a where a.userName = ?1")
      Account findAccountByUsername(String userName);
+    
+    Account 
 }

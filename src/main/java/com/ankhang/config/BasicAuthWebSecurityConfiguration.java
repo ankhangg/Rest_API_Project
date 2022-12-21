@@ -59,7 +59,7 @@ public class BasicAuthWebSecurityConfiguration {
 		// Nếu chưa login, nó sẽ redirect tới trang /admin/login.
     	http.authorizeRequests().requestMatchers("/addcus","/homeadmin").access("hasRole('ROLE_ADMIN')");
     	
-    	http.authorizeRequests().requestMatchers("/homeuser").access("hasRole('ROLE_USER')");
+    	http.authorizeRequests().requestMatchers("/homeuser","/addbill","/findbill","/findbillofcus").access("hasRole('ROLE_USER')");
     	
     	http.authorizeRequests().requestMatchers("/findcus").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')");
     	
