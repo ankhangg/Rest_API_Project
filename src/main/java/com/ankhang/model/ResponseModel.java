@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 public class ResponseModel {
    private String code;
    private String message;
+   private int ageCus;
+   private String nameCus;
 }

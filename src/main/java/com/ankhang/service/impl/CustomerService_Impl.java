@@ -17,29 +17,24 @@ public class CustomerService_Impl implements CustomerService {
 
 	@Override
 	public boolean saveCustomer_Regist(Customer customer) {		
-//		Customer customer = new Customer();
-//		customer.setAgeCus(customer_Model.getAgeCus());
-//		customer.setMaDinhDanhCus(customer.getMaDinhDanhCus());
-//		customer.setNameCus(customer.getNameCus());
 		try {
 			customerRepository.save(customer);
-			System.out.println("saveCustomer_Regist Success");
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("saveCustomer_Regist Fail");
 		}
 		return false;
 	}
 
 	@Override
-	public Customer findCustomer(int madd) {
+	public Customer findCustomerbyMadd(String madd) {
+		Customer customer = new Customer();
 		try {
-			Customer customer = customerRepository.findByMaDinhDanhCus(madd);
+			 customer = customerRepository.findCusbyMadd(madd);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-		return null;
+		return customer;
 	}
 
 }

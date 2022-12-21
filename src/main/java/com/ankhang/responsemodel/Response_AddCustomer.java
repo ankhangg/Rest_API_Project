@@ -16,4 +16,10 @@ public class Response_AddCustomer {
 	
 	@SerializedName("code")	
     private String codeRP;
+	
+	@SerializedName("nameCus")	
+	private String nameCus;
+	
+	@SerializedName("ageCus")	
+	private String ageCus;
 }

@@ -61,6 +61,8 @@ public class BasicAuthWebSecurityConfiguration {
     	
     	http.authorizeRequests().requestMatchers("/homeuser").access("hasRole('ROLE_USER')");
     	
+    	http.authorizeRequests().requestMatchers("/findcus").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')");
+    	
     	// Login ko dung Role
     	http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
     	

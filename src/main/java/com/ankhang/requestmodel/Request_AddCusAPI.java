@@ -9,13 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Request_AddCus {
- @SerializedName("nameCus")
-  private String nameCus;
- 
- @SerializedName("maDinhDanhCus")
-  private String maddCus;
- 
- @SerializedName("ageCus")
-  private int ageCus;
+public class Request_AddCusAPI {
+
+	  private String maDinhDanhCus;
 }
