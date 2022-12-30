@@ -66,7 +66,7 @@ public class BillCustomerServiceImpl implements BillCustomerService {
 		List<Bill_Customer> listbill = null;
 		Customer customer = customerService.findCustomerbyMadd(madd);
 		if (customer!=null) {
-		 listbill = customer.getListBill_Customers();
+		 listbill = customer.getListBillCustomers();
 		}
 		return listbill;
 	}

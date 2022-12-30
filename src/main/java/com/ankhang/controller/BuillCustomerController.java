@@ -77,7 +77,7 @@ public class BuillCustomerController {
 		  Customer customer = new Customer();
 		  Response_FindBillOfCus respone = new Response_FindBillOfCus();
 		  try {
-			  customer = customerService.findCustomerbyMadd(cusreq.getMaDinhDanhCus());
+			  customer = customerService.findCustomerbyMaddwithlistbill(cusreq.getMaDinhDanhCus());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -85,8 +85,8 @@ public class BuillCustomerController {
 			  respone.setCode(bundle.getString("code.success"));
 			  respone.setMaddcus(customer.getMaDinhDanhCus());
 			  respone.setNamecus(customer.getNameCus());
-			  respone.setListBill_Customers(customer.getListBill_Customers());
-			  if (customer.getListBill_Customers() != null) {
+			  respone.setListBill_Customers(customer.getListBillCustomers());
+			  if (customer.getListBillCustomers() != null) {
 				  respone.setMessage(bundle.getString("findbillcus.message.success"));
 			}else {
 				respone.setMessage(bundle.getString("findbillcus.message.successnull"));
