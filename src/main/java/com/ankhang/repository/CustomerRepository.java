@@ -11,4 +11,8 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
   
 	@Query("Select c from Customer c where c.maDinhDanhCus = ?1")
 	Customer findCusbyMadd(String maDD);
+	
+	
+	@Query("Select c from Customer c left join fetch c.listBillCustomers where c.maDinhDanhCus = ?1")
+	Customer findCusbyMaddwithlistBill(String maDD);
 }

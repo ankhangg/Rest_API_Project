@@ -37,4 +37,15 @@ public class CustomerService_Impl implements CustomerService {
 		return customer;
 	}
 
+	@Override
+	public Customer findCustomerbyMaddwithlistbill(String madd) {
+		Customer customer = new Customer();
+		try {
+			 customer = customerRepository.findCusbyMaddwithlistBill(madd);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return customer;
+	}
+
 }

@@ -1,6 +1,9 @@
 package com.ankhang.entities;
 
+import java.io.Serializable;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.JoinColumn;
@@ -23,9 +26,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public class Customer implements Serializable {
 	 
- @Id
+
+	private static final long serialVersionUID = 4145550324155412879L;
+
+@Id
  @Column(name =  "idcus")
  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long idCus;
@@ -39,7 +45,8 @@ public class Customer {
  @Column(name = "agecus", nullable = true)
   private int ageCus;
  
+ @JsonIgnore
  @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
  @JoinColumn(name = "cus_id")
-  private List<Bill_Customer> listBill_Customers;
+  private List<Bill_Customer> listBillCustomers;
 }
