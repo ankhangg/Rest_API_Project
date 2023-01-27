@@ -2,7 +2,7 @@ package com.ankhang.entities;
 
 import java.io.Serializable;
 
-
+import  jakarta.persistence.OneToOne;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -42,6 +42,11 @@ public class Account implements Serializable {
 	private String userRole;
 	
 	private boolean active;
+	
+	@OneToOne(mappedBy = "account")
+	private Account_Info account_Info;
+	
+	
 	
 	 
 
