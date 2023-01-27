@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ankhang.entities.Account;
 import com.ankhang.entities.Customer;
 import com.ankhang.model.ResponseModel;
+import com.ankhang.requestmodel.Request_AddAcountWithInfo;
 import com.ankhang.requestmodel.Request_AddCusAPI;
 import com.ankhang.requestmodel.Request_AddCusMain;
+import com.ankhang.service.AccountService;
 import com.ankhang.service.CustomerService;
 import com.ankhang.service.ListFindCusService;
 
@@ -25,6 +28,9 @@ public class CustomerController {
   
   @Autowired
   private ListFindCusService listFindCusService;
+  
+  @Autowired
+  private AccountService accountService;
   
   private ResourceBundle bundle = ResourceBundle.getBundle("ak_properties/message_api");
   
@@ -69,6 +75,26 @@ public class CustomerController {
 	} catch (Exception e) {
 		e.printStackTrace();
 		System.out.println("Fail saveListFindCus");
+	}
+	  return demoModel;
+  }
+  
+  @PostMapping(value = "/addcusinfo", produces = {MediaType.APPLICATION_JSON_VALUE})
+  @ResponseBody
+  public ResponseModel addAccountWithInfo(@RequestBody Request_AddAcountWithInfo request) {
+	  ResponseModel demoModel = new ResponseModel();
+	  boolean result = false;
+	  try {
+		  result = accountService.saveAccountWithInfo(request);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	  if (result==false) {
+		  demoModel.setMessage(bundle.getString("addcustinfo.message.fail"));
+		  demoModel.setCode(bundle.getString("code.fail"));
+	} else {
+		  demoModel.setMessage(bundle.getString("addcustinfo.message.success"));
+		  demoModel.setCode(bundle.getString("code.success"));
 	}
 	  return demoModel;
   }

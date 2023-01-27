@@ -53,7 +53,7 @@ public class BasicAuthWebSecurityConfiguration {
     	http.csrf().disable();
     	
     	//Cac trang ko can login
-    	http.authorizeRequests().requestMatchers("/home","/").permitAll();
+    	http.authorizeRequests().requestMatchers("/home","/","/addcusinfo").permitAll();
     	
 		// Các yêu cầu phải login với vai trò ROLE_EMPLOYEE hoặc ROLE_MANAGER.
 		// Nếu chưa login, nó sẽ redirect tới trang /admin/login.
